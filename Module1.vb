@@ -1,18 +1,24 @@
+Option Explicit
 
+Sub test()
+    Dim aa As String
+    aa = getSettingValue("ﾞﾂ・ｪ・ｻ")
+    Debug.Print aa
 
-'--------------------------------------------
-'1列目で相応する行を、2列目で取得する
+End Sub
+
 
 Function getSettingValue(titleName As String) As String
     Dim ws As Worksheet
     
-    Set ws = Worksheets("設定")
+    Set ws = Worksheets("珞・")
     
     Dim rowMax As Long
     
     rowMax = ws.Cells(65536, 2).End(xlUp).row
     
     Debug.Print rowMax
+    
     
     Dim i As Long
     
@@ -29,34 +35,7 @@ Function getSettingValue(titleName As String) As String
         getSettingValue = "none"
         
     Next
-
-End Function
-'--------------------------------------------
-
-
-Function getDataLine(row As Long, col As Long, rowtitle As Long) As Variant
-    Dim ws As Worksheet
-    Set ws = Worksheets(1)
-    Dim i As Long
-    
-    
-    Dim dataArray(20) As Variant
     
     
     
-    For i = 1 To 20
-
-        dataArray(i) = ws.Cells(row, i).Value
-        
-    Next
-    
-    
-    
-    dataArray(0) = ws.Cells(row, col).Value 'Value
-    dataArray(6) = ws.Cells(rowtitle, col).Value 'Date
-    
-    
-    getDataLine = dataArray
-    
-
 End Function
