@@ -39,3 +39,25 @@ Function getSettingValue(titleName As String) As String
     
     
 End Function
+
+    
+Sub testError()
+
+    On Error GoTo ErrorHandle
+        
+    Debug.Print "Done"
+    Debug.Print 1 / 0
+    GoTo Finally
+    
+    'or exit sub
+ErrorHandle:
+    Debug.Print Err.Number, Err.Description
+    
+    GoTo Finally
+    
+Finally:
+    
+    Debug.Print "finally"
+    
+
+End Sub
